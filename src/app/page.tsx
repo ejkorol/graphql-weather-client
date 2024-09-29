@@ -10,6 +10,10 @@ import { getWeather } from "@/services/weatherService";
 import { getCities } from "@/services/locationService";
 import * as motion from "framer-motion/client";
 
+/**
+ * This function maps over the days to return a weekday
+ * based on the offset given from an index of a map method.
+ * */
 const getWeekday = (offset: number) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[(new Date().getDay() + offset) % 7];
@@ -102,6 +106,10 @@ const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
         transition={{ delay: 1.25, duration: 1, ease: "easeInOut" }}
         className="w-full flex flex-row justify-around md:gap-16 md:justify-center"
       >
+        {/*
+         * The slice method on the weatherCode is to render only
+         * the next 4 days of the weather data, excluding the current day.
+         */}
         {weatherCode.slice(1, 5).map((code, idx) => (
           <WeatherWeekday
             key={idx}
