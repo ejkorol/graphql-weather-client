@@ -19,6 +19,10 @@ const iconOptions = {
   color: "#bdbdbd",
 };
 
+/**
+ * Maps the human readable weather type to
+ * a corresponding icon.
+ * */
 const weatherIconMap: Record<WeatherVerboise, JSX.Element> = {
   sunny: <Sun {...iconOptions} />,
   cloudy: <Cloudy {...iconOptions} />,
