@@ -5,7 +5,6 @@ import {
   WeatherCurrent,
   WeatherStat,
 } from "@/components/weather";
-import { Weather, Cities } from "@/types";
 import { getWeather } from "@/services/weatherService";
 import { getCities } from "@/services/locationService";
 import * as motion from "framer-motion/client";
@@ -51,8 +50,8 @@ const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
   /**
    * Fetch data based on default parameters.
    * */
-  const weather: Weather = await getWeather(latitude, longitude);
-  const cities: Cities = await getCities("CA");
+  const weather = await getWeather(latitude, longitude);
+  const cities = await getCities("CA");
 
   const {
     current: {
