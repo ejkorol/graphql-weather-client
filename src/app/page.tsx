@@ -16,9 +16,9 @@ const getWeekday = (offset: number) => {
 };
 
 interface SearchParams {
-  latitude: string;
-  longitude: string;
-  city: string;
+  latitude?: string;
+  longitude?: string;
+  city?: string;
 }
 
 const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
@@ -49,9 +49,6 @@ const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
    * */
   const weather: Weather = await getWeather(latitude, longitude);
   const cities: Cities = await getCities("CA");
-
-  console.log("wind", weather.current.wind_gusts_10m);
-  console.log("temp", weather.current.temperature_2m);
 
   const {
     current: {
