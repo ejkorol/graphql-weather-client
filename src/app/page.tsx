@@ -30,15 +30,28 @@ const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
    *
    * Once search params are set, it will trigger a re-render of the initial page.
    * */
-  const city = searchParams.city || "Vancouver";
-  const latitude = parseFloat(searchParams.latitude) || 49.2827;
-  const longitude = parseFloat(searchParams.longitude) || -123.1207;
+  let latitude = 49.2827;
+  let longitude = -123.1207;
+  let city = "Vancouver";
+
+  if (searchParams) {
+    latitude = searchParams.latitude
+      ? parseFloat(searchParams.latitude)
+      : latitude;
+    longitude = searchParams.longitude
+      ? parseFloat(searchParams.longitude)
+      : longitude;
+    city = searchParams.city || city;
+  }
 
   /**
    * Fetch data based on default parameters.
    * */
   const weather: Weather = await getWeather(latitude, longitude);
   const cities: Cities = await getCities("CA");
+
+  console.log("wind", weather.current.wind_gusts_10m);
+  console.log("temp", weather.current.temperature_2m);
 
   const {
     current: {
