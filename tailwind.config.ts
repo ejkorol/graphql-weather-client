@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        light: "#fafafa",
+        dark: "#212121",
+        gray: "#757575",
+        grayLight: "#bdbdbd",
       },
     },
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

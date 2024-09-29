@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body * {
+  @apply transition-colors duration-300;
+}
+
+::selection {
+  background-color: #8FADFF;
+  color: #fafafa;
+}
+
+::-moz-selection {
+  background-color: #8FADFF;
+  color: #fafafa;
+}
