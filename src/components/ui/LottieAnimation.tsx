@@ -24,6 +24,10 @@ interface LottieAnimationProps {
 const LottieAnimation = ({ weatherCode }: LottieAnimationProps) => {
   const weatherType = getWeather(weatherCode);
 
+  /**
+   * Maps the human readable weather type to
+   * a corresponding lottie file.
+   * */
   const animationMap: Record<WeatherVerboise, any> = {
     sunny: sunny,
     cloudy: cloudy,
